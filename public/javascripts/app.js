@@ -8,5 +8,6 @@ $(document).ready(function () {
       carousel.carousel('next');
     }, 200);
   });
+  $('.typeahead').typeahead()  
 });
 

@@ -93,8 +93,12 @@ block content
       div(class="item")
         div(class="container")
           div(class="carousel-caption")
-            form(class="form-signin")
+            form(class="form-signin form-search")
               h2(class="form-signin-heading") Vergleiche dich mit deinen Arbeitskollegen!
+              input(type="text", placeholder="Wo arbeitest du?", data-provide="typeahead", data-source='["BMW","Audi","VW","Opel"]')
+              br 
+              input(type="submit", class="btn", value="Jetzt vergleichen") 
+
       
     ol(class="carousel-indicators")
       li(data-target="#myCarousel", data-slide-to="0", class="active")
