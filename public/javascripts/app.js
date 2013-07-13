@@ -10,5 +10,6 @@ $(document).ready(function () {
 
     $.post("/answer", { id: $(this).attr("id"), value: 1 });
   });
+  $('.typeahead').typeahead()  
 });
 
