@@ -1,0 +1,16 @@
+{
+  "name": "wohlo",
+  "version": "0.0.0",
+  "dependencies": {
+    "jquery": "~1.9.1",
+    "bootstrap": ">0.0.0"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
