@@ -3,4 +3,102 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  a(href="/auth/facebook") Login with Facebook
+
+  div(id="myCarousel", class="carousel slide")
+    div(class="carousel-inner")
+      div(class="item active")
+        div(class="container")
+          div(class="carousel-caption")
+            form(class="form-signin")
+              h2(class="form-signin-heading") Wie viele Stunden pro Woche bist du sportlich aktiv?
+            
+              table(class="table")
+                tr
+                  td(width="20")
+                    input(type="radio", name="optionsRadios", id="optionsRadios11", value="1")
+                  td
+                    label(for="optionsRadios11") 0
+                tr
+                  td
+                    input(type="radio", name="optionsRadios", id="optionsRadios12", value="2")
+                  td
+                    label(for="optionsRadios12") 1 - 4
+                tr
+                  td
+                    input(type="radio", name="optionsRadios", id="optionsRadios13", value="3")
+                  td
+                    label(for="optionsRadios13") 5 - 10
+                tr
+                  td
+                    input(type="radio", name="optionsRadios", id="optionsRadios14", value="4")
+                  td
+                    label(for="optionsRadios14") mehr als 10
+
+      div(class="item")
+        div(class="container")
+          div(class="carousel-caption")
+            form(class="form-signin")
+              h2(class="form-signin-heading") Wieviele Zigaretten rauchst du durchschnittlich pro Tag?
+            
+              table(class="table")
+                tr
+                  td(width="20")
+                    input(type="radio", name="optionsRadios2", id="optionsRadios21", value="1")
+                  td
+                    label(for="optionsRadios21") 0
+                tr
+                  td
+                    input(type="radio", name="optionsRadios2", id="optionsRadios22", value="2")
+                  td
+                    label(for="optionsRadios22") 1 - 10
+                tr
+                  td
+                    input(type="radio", name="optionsRadios2", id="optionsRadios23", value="3")
+                  td
+                    label(for="optionsRadios23") 11 - 20
+                tr
+                  td
+                    input(type="radio", name="optionsRadios2", id="optionsRadios24", value="4")
+                  td
+                    label(for="optionsRadios24") mehr als 20
+
+      div(class="item")
+        div(class="container")
+          div(class="carousel-caption")
+            form(class="form-signin")
+              h2(class="form-signin-heading") letzte Frage?
+
+              table(class="table")
+                tr
+                  td(width="20")
+                    input(type="radio", name="optionsRadios2", id="optionsRadios21", value="1")
+                  td
+                    label(for="optionsRadios21") 0
+                tr
+                  td
+                    input(type="radio", name="optionsRadios2", id="optionsRadios22", value="2")
+                  td
+                    label(for="optionsRadios22") 1 - 10
+                tr
+                  td
+                    input(type="radio", name="optionsRadios2", id="optionsRadios23", value="3")
+                  td
+                    label(for="optionsRadios23") 11 - 20
+                tr
+                  td
+                    input(type="radio", name="optionsRadios2", id="optionsRadios24", value="4")
+                  td
+                    label(for="optionsRadios24") mehr als 20
+      
+      div(class="item")
+        div(class="container")
+          div(class="carousel-caption")
+            form(class="form-signin")
+              h2(class="form-signin-heading") Vergleiche dich mit deinen Arbeitskollegen!
+      
+          ol(class="carousel-indicators")
+            li(data-target="#myCarousel", data-slide-to="0", class="active")
+            li(data-target="#myCarousel", data-slide-to="1")
+            li(data-target="#myCarousel", data-slide-to="2")
+            li(data-target="#myCarousel", data-slide-to="3")
+

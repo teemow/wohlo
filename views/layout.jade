@@ -2,6 +2,34 @@ doctype 5
 html
   head
     title= title
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="description", content="")
+    meta(name="author", content="")
+
+    link(rel='stylesheet', href='/vendor/bootstrap/css/bootstrap.css')
+    link(rel='stylesheet', href='/vendor/bootstrap/css/bootstrap-responsive.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+
+    link(rel="apple-touch-icon-precomposed", sizes="144x144", href="ico/apple-touch-icon-144-precomposed.png")
+    link(rel="apple-touch-icon-precomposed", sizes="114x114", href="ico/apple-touch-icon-114-precomposed.png")
+    link(rel="apple-touch-icon-precomposed", sizes="72x72", href="ico/apple-touch-icon-72-precomposed.png")
+    link(rel="apple-touch-icon-precomposed", href="ico/apple-touch-icon-57-precomposed.png")
+    link(rel="shortcut icon", href="ico/favicon.png")
+
   body
     block content
+
+    footer
+      p(class="pull-right")
+        a(href="#") Back to top
+      p &copy; 2013 Company, Inc. &middot; 
+        a(href="#") Privacy
+        | &middot;
+        a(href="#") Terms
+
+
+    script(src="/vendor/bootstrap/js/jquery.min.js")
+    script(src="/vendor/bootstrap/js/bootstrap-transition.js")
+    script(src="/vendor/bootstrap/js/bootstrap-carousel.js")
+    script(src="/javascripts/app.js")
+
