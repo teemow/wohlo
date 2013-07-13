@@ -10,8 +10,7 @@ var express = require('express')
   , hash = require("./lib/pass").hash
   , models = require("./lib/models")
   , ConfigPassport = require("./lib/config_passport")
-  , ObjectID = require("./node_modules/mongoose/node_modules/mongodb").ObjectID
-  , host;
+  , ObjectID = require("./node_modules/mongoose/node_modules/mongodb").ObjectID;
 
 var app = express();
 
