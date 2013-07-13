@@ -19,6 +19,10 @@ exports.login = function (req, res) {
   res.render("login");
 };
 
+exports.comparison = function (req, res) {
+  res.render("comparison");
+};
+
 exports.logout = function(req, res) {
   req.logout();
   res.redirect('/login');
