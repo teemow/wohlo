@@ -11,6 +11,11 @@
 
 
 
+    h2 {
+      font-size: 14px;
+    }
+
+
     /* CUSTOMIZE THE NAVBAR
     -------------------------------------------------- */
 
@@ -113,6 +118,7 @@
     }
     .marketing h2 {
       font-weight: normal;
+
     }
     .marketing .span4 p {
       margin-left: 10px;
@@ -157,7 +163,7 @@
 	
 	.form-signin {
         
-		width: 90%;
+
         padding: 19px 29px 29px;
         margin: 0 auto 20px;
         background-color: #fff;
@@ -269,8 +275,13 @@
 		position: relative !important;
 		text-align: center;
 		padding-left: 50%;
-	  }
+    cursor: pointer;
+  }
 
-    label {
-      display: inline;
-    }
+  label {
+    margin-bottom: 0px;
+  }
+
+  input[type="radio"], input[type="checkbox"] {
+    margin-top: 0px;
+  }
