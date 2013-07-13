@@ -7,6 +7,8 @@ $(document).ready(function () {
     setTimeout(function() {
       carousel.carousel('next');
     }, 200);
+
+    $.post("/answer", { id: $(this).attr("id"), value: 1 });
   });
 });
 

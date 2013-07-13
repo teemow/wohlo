@@ -101,6 +101,16 @@ app.get("/profile", authenticatedOrNot, function(req, res){
   res.render("profile", { user: req.user});
 });
 
+app.post("/answer", userExist, function (req, res, next) {
+  var answers = new models.Answers({
+    user: req.sessionID,
+    question: req.body.id
+  }).save(function (err, newAnswer) {
+    console.log(newAnswer);
+    res.send(200);
+  });
+});
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
