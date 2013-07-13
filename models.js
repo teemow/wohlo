@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-console.log(process.env.MONGOHQ_URL);
+console.log(process.env);
 mongoose.connect(process.env.MONGOHQ_URL || "mongodb://localhost/wohlo");
 
 var LocalUserSchema = new mongoose.Schema({
