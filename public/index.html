@@ -147,12 +147,14 @@
 
 
         <div class="item">
-          
           <div class="container">
             <div class="carousel-caption">
               <form class="form-signin">
 				<h2 class="form-signin-heading">Vergleiche dich mit deinen Arbeitskollegen!</h2>
-				
+          <form class="form-search">
+          <input type="text" data-provide="typeahead" data-source='["BMW","Audi","VW","Opel"]'>
+          <button type="submit" class="btn">Search</button>
+          </form>
 			  </form>
 
             </div>
@@ -245,10 +247,10 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="vendor/bootstrap/js/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap-carousel.js"></script>
-
+    <script src="vendor/bootstrap/js/bootstrap-typeahead.js"></script>
+    
     <script>
 
-	  
 	  
 	   $(document).ready(function () {
 	   
@@ -263,12 +265,12 @@
 
           setTimeout(function() {
           		carousel.carousel('next');
-          		carousel.carousel('pause');
           }, 200);
 
       });
 
-      
+     // intelligent search for companies
+    $('.typeahead').typeahead()  
 			
 
 		});
