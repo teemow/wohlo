@@ -259,9 +259,16 @@
 	   
 	   
 	   $("input[type=radio]").click(function() {
-		carousel.carousel('next');
-		carousel.carousel('pause');
-		});
+
+
+          setTimeout(function() {
+          		carousel.carousel('next');
+          		carousel.carousel('pause');
+          }, 200);
+
+      });
+
+      
 			
 
 		});
