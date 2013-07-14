@@ -1,13 +1,17 @@
 extends layout
 
 block content
+  input(type="hidden", name="user", value=user)
   div(class="navbar navbar-fixed-top navbar-inverse")
     div(class="navbar-inner")
       ul(class="nav")
         li
           a(href="#") 
             i(class="icon-user") 
-            span Profil
+            if user
+              span= user
+            else
+              span Profil
         li
           a(href="#") 
             i(class="icon-check") 
@@ -53,8 +57,12 @@ block content
       form(class="form-register")
         input(type="text", class="input-block-level", placeholder="E-Mail Adresses")
         input(type="password", class="input-block-level", placeholder="Password")
+        button(class="btn btn-facebook")
+          i(class="icon-home icon-white")
+          | | Connect with Facebook
+        hr
         button(class="btn btn-large btn-primary", type="submit") Registrieren und Challenges starten
-      
+     
   
     
 

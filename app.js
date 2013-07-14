@@ -52,7 +52,6 @@ app.get("/", routes.index);
 app.get("/login", routes.login);
 app.get("/signup", routes.signup);
 app.get('/logout', routes.logout);
-app.get('/challenges', routes.challenges);
 
 app.post("/login", passport.authenticate('local', {
   successRedirect : "/",
@@ -89,11 +88,10 @@ app.post("/signup", function (req, res, next) {
   });
 });
 
-app.get("/auth/facebook", passport.authenticate("facebook",{scope: "email"}));
+app.get("/auth/facebook", passport.authenticate("facebook", {scope: "email"}));
 app.get("/auth/facebook/callback",
   passport.authenticate("facebook", {failureRedirect: '/login'}),
     function(req, res) {
-      console.log(req.user);
       res.redirect("/challenges");
 });
 
@@ -126,6 +124,14 @@ app.get("/comparison", function (req, res, next) {
     models.Companies.findOne({name: user.company}, function(err, company) {
       res.render("comparison", {title: "Wohlo", user: user, company: company});
     });
+  });
+});
+
+app.get('/challenges', function(req, res) {
+  var data = {};
+  models.Users.findById(req.session.passport.user, function(err, user) {
+    if (!err && user) data = {user: user.name};
+    res.render("challenges", data);
   });
 });
 

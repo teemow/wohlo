@@ -24,7 +24,3 @@ exports.logout = function(req, res) {
   res.redirect('/login');
 };
 
-exports.challenges = function(req, res) {
-  res.render("challenges");
-};
-
