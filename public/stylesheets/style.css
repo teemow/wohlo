@@ -299,3 +299,14 @@ label {
 input[type="radio"], input[type="checkbox"] {
     margin-top: 0px;
 }
+
+
+.challengecontainer {
+    margin-left: -125px;
+    left: 50%;
+    position: relative;
+}
+
+.spalte1 {
+    margin-right: 50px;
+}
