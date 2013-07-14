@@ -63,7 +63,7 @@ app.get("/", routes.index);
 app.get("/login", routes.login);
 app.get("/signup", routes.signup);
 app.get('/logout', routes.logout);
-app.get('/challanges', routes.challanges);
+app.get('/challenges', routes.challanges);
 app.get('/comparison', routes.comparison);
 
 app.post("/login", passport.authenticate('local', {
