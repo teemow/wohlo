@@ -1,8 +1,6 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
 
   input(type="hidden", value=user.score, name="score")
   input(type="hidden", value=company.name, name="company")
@@ -10,8 +8,8 @@ block content
   input(type="hidden", value=company.user_count, name="company_user_count")
   
   div(class="item")
-    div(id="g1")
+    div(id="g1", class="charts")
     hr
-    div(id="g2")
+    div(id="g2", class="charts")
 
     button(class="btn") Absolviere Challenges
