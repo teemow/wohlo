@@ -63,30 +63,31 @@ block content
             table(class="table")
               tr
                 td(width="20")
-                  input(type="radio", name="optionsRadios2", id="optionsRadios21", value="5")
+                  input(type="radio", name="optionsRadios3", id="optionsRadios31", value="5")
                 td
-                  label(for="optionsRadios21") Sehr gesund
+                  label(for="optionsRadios31") Sehr gesund
               tr
                 td
-                  input(type="radio", name="optionsRadios2", id="optionsRadios22", value="3")
+                  input(type="radio", name="optionsRadios3", id="optionsRadios32", value="3")
                 td
-                  label(for="optionsRadios22") Eher gesund
+                  label(for="optionsRadios32") Eher gesund
               tr
                 td
-                  input(type="radio", name="optionsRadios2", id="optionsRadios23", value="1")
+                  input(type="radio", name="optionsRadios3", id="optionsRadios33", value="1")
                 td
-                  label(for="optionsRadios23") Eher ungesund
+                  label(for="optionsRadios33") Eher ungesund
               tr
                 td
-                  input(type="radio", name="optionsRadios2", id="optionsRadios24", value="0")
+                  input(type="radio", name="optionsRadios3", id="optionsRadios34", value="0")
                 td
-                  label(for="optionsRadios24") Ungesund
+                  label(for="optionsRadios34") Ungesund
     
       div(class="item")
         div(class="carousel-caption")
-          form(class="form-signin form-search", action="/comparison")
+          form(class="form-signin form-search", action="/answer", method="post")
             h2(class="form-signin-heading") Vergleiche dich mit deinen Arbeitskollegen!
-            input(type="text", placeholder="Wo arbeitest du?", data-provide="typeahead", data-source='["BMW","Audi","VW","Opel","Maserati","Porsche"]')
+            input(type="text", name="company", placeholder="Wo arbeitest du?", data-provide="typeahead", data-source='["BMW","Audi","VW","Opel","Maserati","Porsche"]')
+            input(type="hidden", name="score")
             br 
             input(type="submit", class="btn", value="Jetzt vergleichen") 
 

@@ -1,34 +1,47 @@
 $(document).ready(function () {
 
   /** Carousel challenge **/
+  if ($('#myCarousel').size() > 0) {
 
-  var carousel = $('#myCarousel').carousel();
-  carousel.carousel('pause');
+    var carousel = $('#myCarousel').carousel();
+    carousel.carousel('pause');
 
-  $("input[type=radio]").click(function() {
+    $("input[type=radio]").click(function() {
 
-    setTimeout(function() {
+      setTimeout(function() {
+        carousel.carousel('next');
+      }, 200);
+
+    });
+
+    $(".btn").click(function(e) {
+      e.preventDefault();
+
+      var score = 0;
+      $('input[type=radio]:checked').each(function() {
+        score += parseInt($(this).attr('value'));
+      });
+      $('input[name=score]').val(score);
+
+      $(this).parents('form').submit();
+    });
+
+    $('.typeahead').typeahead();
+
+    Mousetrap.bind("right", function() {
       carousel.carousel('next');
-    }, 200);
-
-    $.post("/answer", { id: $(this).attr("id"), value: 1 });
-  });
-
-  $('.typeahead').typeahead();
-
-  Mousetrap.bind("right", function() {
-    carousel.carousel('next');
-  });
-  Mousetrap.bind("left", function() {
-    carousel.carousel('prev');
-  });
+    });
+    Mousetrap.bind("left", function() {
+      carousel.carousel('prev');
+    });
+  }
 
   /** Comparison **/
 
   if ($('#g1').size() > 0) {
     var g1 = new JustGage({
       id: "g1",
-      value: 60,
+      value: $('input[name=score]').val(),
       min: 0,
       max: 100,
       title: "Dein Score",
@@ -48,7 +61,7 @@ $(document).ready(function () {
       value: 65,
       min: 0,
       max: 100,
-      title: "BMW",
+      title: $('input[name=company]').val(),
       titleFontColor: "#000",
       label: "",
       levelColors: [

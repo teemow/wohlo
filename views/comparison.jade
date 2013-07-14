@@ -4,6 +4,9 @@ block content
   h1= title
   p Welcome to #{title}
 
+  input(type="hidden", value=user.score, name="score")
+  input(type="hidden", value=user.company, name="company")
+  
   div(class="item")
     div(id="g1")
     hr

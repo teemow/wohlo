@@ -9,8 +9,7 @@ var express = require('express')
   , routes = require("./routes")
   , hash = require("./lib/pass").hash
   , models = require("./lib/models")
-  , ConfigPassport = require("./lib/config_passport")
-  , ObjectID = require("./node_modules/mongoose/node_modules/mongodb").ObjectID;
+  , ConfigPassport = require("./lib/config_passport");
 
 var app = express();
 
@@ -46,16 +45,6 @@ function authenticatedOrNot(req, res, next){
   }
 }
 
-function userExist(req, res, next) {
-  models.Users.count({username: req.body.username}, function (err, count) {
-    if (count === 0) {
-      next();
-    } else {
-      res.redirect("/signup");
-    }
-  });
-}
-
 /*
  * Routes
  */
@@ -64,52 +53,69 @@ app.get("/login", routes.login);
 app.get("/signup", routes.signup);
 app.get('/logout', routes.logout);
 app.get('/challenges', routes.challenges);
-app.get('/comparison', routes.comparison);
 
 app.post("/login", passport.authenticate('local', {
   successRedirect : "/",
   failureRedirect : "/login",
 }));
 
-app.post("/signup", userExist, function (req, res, next) {
-  var user = new models.Users();
+app.post("/signup", function (req, res, next) {
   hash(req.body.password, function (err, salt, hash) {
     if (err) throw err;
-    var user = new models.Users({
+
+    var user = {
       username: req.body.username,
       salt: salt,
-      hash: hash,
-      _id : new ObjectID
-    }).save(function (err, newUser) {
-      if (err) throw err;
-      req.login(newUser, function(err) {
-        if (err) { return next(err); }
-        return res.redirect('/');
-      });
+      hash: hash
+    };
+
+    models.Users.findOneAndUpdate({session: req.sessionID}, user, function(err, existingUser) {
+      if (existingUser) {
+        req.login(existingUser, function(err) {
+          if (err) { return next(err); }
+          return res.redirect('/challenges');
+        });
+      } else {
+        user.session = req.sessionID;
+        var user = new models.Users(user).save(function (err, newUser) {
+          if (err) throw err;
+          req.login(newUser, function(err) {
+            if (err) { return next(err); }
+            return res.redirect('/challenges');
+          });
+        });
+      }
     });
   });
 });
 
 app.get("/auth/facebook", passport.authenticate("facebook",{scope: "email"}));
-
 app.get("/auth/facebook/callback",
   passport.authenticate("facebook", {failureRedirect: '/login'}),
-  function(req,res) {
-    res.render("loggedin", {user: req.user});
-  }
-);
+    function(req, res) {
+      console.log(req.user);
+      res.redirect("/challenges");
+});
 
 app.get("/profile", authenticatedOrNot, function(req, res){
   res.render("profile", { user: req.user});
 });
 
-app.post("/answer", userExist, function (req, res, next) {
-  var answers = new models.Answers({
-    user: req.sessionID,
-    question: req.body.id
-  }).save(function (err, newAnswer) {
-    console.log(newAnswer);
-    res.send(200);
+app.post("/answer", function (req, res, next) {
+  new models.Users({
+    session: req.sessionID,
+    company: req.body.company,
+    score: parseInt(req.body.score * 100 / 15)
+  }).save(function (err, newUser) {
+    console.log(newUser);
+    res.redirect("/comparison");
+  });
+});
+
+app.get("/comparison", function (req, res, next) {
+  models.Users.findOne({session: req.sessionID}, function(err, user) {
+    if (err || !user) return res.redirect("/");
+    res.render("comparison", {title: "Wohlo", user: user});
   });
 });
 
