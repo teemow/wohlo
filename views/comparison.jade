@@ -5,7 +5,9 @@ block content
   p Welcome to #{title}
 
   input(type="hidden", value=user.score, name="score")
-  input(type="hidden", value=user.company, name="company")
+  input(type="hidden", value=company.name, name="company")
+  input(type="hidden", value=company.score, name="company_score")
+  input(type="hidden", value=company.user_count, name="company_user_count")
   
   div(class="item")
     div(id="g1")

@@ -107,15 +107,25 @@ app.post("/answer", function (req, res, next) {
     company: req.body.company,
     score: parseInt(req.body.score * 100 / 15)
   }).save(function (err, newUser) {
-    console.log(newUser);
-    res.redirect("/comparison");
+    var find = {name: newUser.company}
+      , update = {$inc: {score: newUser.score, user_count: 1}}
+      , options = {upsert: true};
+
+    models.Companies.findOneAndUpdate(find, update, options, function(err, company) {
+      console.log(newUser);
+      console.log(company);
+      res.redirect("/comparison");
+    });
   });
 });
 
 app.get("/comparison", function (req, res, next) {
   models.Users.findOne({session: req.sessionID}, function(err, user) {
     if (err || !user) return res.redirect("/");
-    res.render("comparison", {title: "Wohlo", user: user});
+
+    models.Companies.findOne({name: user.company}, function(err, company) {
+      res.render("comparison", {title: "Wohlo", user: user, company: company});
+    });
   });
 });
 

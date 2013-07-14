@@ -56,9 +56,14 @@ $(document).ready(function () {
   }
 
   if ($('#g2').size() > 0) {
+    var score = parseInt(
+      parseInt($('input[name=company_score]').val()) /
+      parseInt($('input[name=company_user_count]').val())
+    );
+
     var g2 = new JustGage({
       id: "g2",
-      value: 65,
+      value: score,
       min: 0,
       max: 100,
       title: $('input[name=company]').val(),
