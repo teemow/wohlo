@@ -2,14 +2,14 @@ extends layout
 
 block content
   h1= title
-  h2 Login
-  div(class="navbar navbar-fixed-bottom navbar-inverse")
+  div(class="navbar navbar-fixed-top navbar-inverse")
     div(class="navbar-inner")
-      a(class="brand" href="#") Title
+      a(class="brand", href="#") Title
       ul(class="nav")
         li(class="active")
           a(href="#") 
-            i(class="icon-user") Profil
+            i(class="icon-user") 
+            span Profil
         li
           a(href="#") 
             i(class="icon-check") Team
@@ -19,14 +19,19 @@ block content
 
   div(class="challengecontainer")
     div(class="spalte1")
-      img(src="images/bewegung.jpg" class="img-polaroid")
+      img(src="/images/bewegung.jpg", class="img-polaroid")
+      span Bewegung
       br
-      img(src="images/sport.jpg" class="img-polaroid")
+      img(src="/images/sport.jpg", class="img-polaroid")
+      span Rauchen
       br
-      img(src="images/schlaf.jpg" class="img-polaroid")
+      img(src="/images/schlaf.jpg", class="img-polaroid")
+      span Schlafen
 
     div(class="spalte2")
-      img(src="images/stress.jpg" class="img-polaroid")
+      img(src="/images/stress.jpg", class="img-polaroid")
+      span Stress
       br
-      img(src="images/ernaehrung.jpg" class="img-polaroid")
+      img(src="/images/ernaehrung.jpg", class="img-polaroid")
+      span Ernährung
 

@@ -6,6 +6,7 @@ block content
 
   script
     var g1;
+    var g2;
 
     window.onload = function(){
     g1 = new JustGage({
@@ -15,6 +16,22 @@ block content
     max: 100,
     title: "Dein Score",
     label: "", 
+    titleFontColor: "#000", 
+    levelColors: [
+    "#ff0000",
+    "#ffcc00",
+    "#00ff00",
+    ] 
+    });
+
+    g2 = new JustGage({
+    id: "g2", 
+    value: 65, 
+    min: 0,
+    max: 100,
+    title: "BMW",
+    titleFontColor: "#000", 
+    label: "", 
     levelColors: [
     "#ff0000",
     "#ffcc00",
@@ -22,8 +39,9 @@ block content
     ] 
     });
     };
+
     
-    $(window).resize(function() {
-    g1.refresh(70);
-    });
+    
   div(id="g1")
+  hr
+  div(id="g2")
