@@ -64,6 +64,7 @@ app.get("/login", routes.login);
 app.get("/signup", routes.signup);
 app.get('/logout', routes.logout);
 app.get('/challanges', routes.challanges);
+app.get('/comparison', routes.comparison);
 
 app.post("/login", passport.authenticate('local', {
   successRedirect : "/",
@@ -100,6 +101,16 @@ app.get("/auth/facebook/callback",
 
 app.get("/profile", authenticatedOrNot, function(req, res){
   res.render("profile", { user: req.user});
+});
+
+app.post("/answer", userExist, function (req, res, next) {
+  var answers = new models.Answers({
+    user: req.sessionID,
+    question: req.body.id
+  }).save(function (err, newAnswer) {
+    console.log(newAnswer);
+    res.send(200);
+  });
 });
 
 http.createServer(app).listen(app.get('port'), function(){
