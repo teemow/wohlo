@@ -63,6 +63,7 @@ app.get("/", routes.index);
 app.get("/login", routes.login);
 app.get("/signup", routes.signup);
 app.get('/logout', routes.logout);
+app.get('/challanges', routes.challanges);
 
 app.post("/login", passport.authenticate('local', {
   successRedirect : "/",

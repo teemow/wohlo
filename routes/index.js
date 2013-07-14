@@ -23,3 +23,8 @@ exports.logout = function(req, res) {
   req.logout();
   res.redirect('/login');
 };
+
+exports.challanges = function(req, res) {
+  res.render("challanges");
+};
+
