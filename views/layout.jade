@@ -15,18 +15,20 @@ html
     link(rel="apple-touch-icon-precomposed", sizes="72x72", href="ico/apple-touch-icon-72-precomposed.png")
     link(rel="apple-touch-icon-precomposed", href="ico/apple-touch-icon-57-precomposed.png")
     link(rel="shortcut icon", href="ico/favicon.png")
+    link(href="http://fonts.googleapis.com/css?family=Chelsea+Market", rel="stylesheet", type="text/css")
 
   body
-    block content
+    div(class="container")
 
-    footer
-      p(class="pull-right")
-        a(href="#") Back to top
-      p &copy; 2013 Company, Inc. &middot; 
-        a(href="#") Privacy
-        | &middot;
-        a(href="#") Terms
+      block content
 
+      footer
+        p(class="pull-right")
+          a(href="#") Back to top
+        p &copy; 2013 Company, Inc. &middot; 
+          a(href="#") Privacy
+          | &middot;
+          a(href="#") Terms
 
     script(src="/vendor/bootstrap/js/jquery.min.js")
     script(src="/vendor/bootstrap/js/bootstrap-transition.js")
