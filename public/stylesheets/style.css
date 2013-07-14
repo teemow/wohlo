@@ -108,9 +108,7 @@ h2 {
 
 .carousel-caption {
   background-color: transparent;
-  
-position: fixed;
-
+  position: static;
   padding: 0 20px;
   margin-top: 20px;
 }
