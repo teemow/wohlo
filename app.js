@@ -135,6 +135,14 @@ app.get('/challenges', function(req, res) {
   });
 });
 
+app.get('/move', function(req, res) {
+  var data = {};
+  models.Users.findById(req.session.passport.user, function(err, user) {
+    if (!err && user) data = {user: user.name};
+    res.render("move", data);
+  });
+});
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });

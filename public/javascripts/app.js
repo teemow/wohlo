@@ -89,6 +89,7 @@ $(document).ready(function () {
     if ($('input[name=user]').val() === "") {
       $("a").click(function(e) {
         e.preventDefault();
+        e.stopPropagation();
         $('#modal_register').modal();
       });
     }
