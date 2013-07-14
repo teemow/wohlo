@@ -10,6 +10,14 @@ $(document).ready(function () {
 
     $.post("/answer", { id: $(this).attr("id"), value: 1 });
   });
-  $('.typeahead').typeahead()  
+
+  $('.typeahead').typeahead();
+
+  Mousetrap.bind("right", function() {
+    carousel.carousel('next');
+  });
+  Mousetrap.bind("left", function() {
+    carousel.carousel('prev');
+  });
 });
 
