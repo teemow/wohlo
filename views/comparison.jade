@@ -1,6 +1,10 @@
 extends layout
 
 block content
+  h1= title
+  p Fühle dich wohl
+  p Schon registriert? 
+    a(href="/login") Login
 
   input(type="hidden", value=user.score, name="score")
   input(type="hidden", value=company.name, name="company")

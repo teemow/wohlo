@@ -9,7 +9,8 @@ var express = require('express')
   , routes = require("./routes")
   , hash = require("./lib/pass").hash
   , models = require("./lib/models")
-  , ConfigPassport = require("./lib/config_passport");
+  , ConfigPassport = require("./lib/config_passport")
+  , title = "Wohlo";
 
 var app = express();
 
@@ -50,7 +51,6 @@ function authenticatedOrNot(req, res, next){
  */
 app.get("/", routes.index);
 app.get("/login", routes.login);
-app.get("/signup", routes.signup);
 app.get('/logout', routes.logout);
 
 app.post("/login", passport.authenticate('local', {
@@ -122,7 +122,7 @@ app.get("/comparison", function (req, res, next) {
     if (err || !user) return res.redirect("/");
 
     models.Companies.findOne({name: user.company}, function(err, company) {
-      res.render("comparison", {title: "Wohlo", user: user, company: company});
+      res.render("comparison", {title: title, user: user, company: company});
     });
   });
 });

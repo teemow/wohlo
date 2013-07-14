@@ -5,14 +5,10 @@
 
 exports.index = function (req, res) {
   if (req.isAuthenticated()) {
-    res.render("loggedin", {user: req.user});
+    res.redirect("/challenges");
   } else {
     res.render('index', {title: 'Wohlo'});
   }
-};
-
-exports.signup = function (req, res) {
-  res.render("signup");
 };
 
 exports.login = function (req, res) {
@@ -21,6 +17,6 @@ exports.login = function (req, res) {
 
 exports.logout = function(req, res) {
   req.logout();
-  res.redirect('/login');
+  res.redirect('/');
 };
 

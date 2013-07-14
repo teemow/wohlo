@@ -80,19 +80,18 @@ $(document).ready(function () {
     });
   }
 
-  if ($('#modal_register').size() > 0) {
-    $('.btn-facebook').click(function(e) {
-      e.preventDefault();
-      location.href="/auth/facebook";
-    });
+  $('.btn-facebook').click(function(e) {
+    e.preventDefault();
+    location.href="/auth/facebook";
+  });
 
+  if ($('#modal_register').size() > 0) {
     if ($('input[name=user]').val() === "") {
       $("a").click(function(e) {
         e.preventDefault();
         $('#modal_register').modal();
       });
     }
-
   }
 });
 

@@ -1,17 +1,24 @@
 extends layout
 
 block content
-  h1= title
-  h2 Login
-  form(action="/login", method="post")
-    div
-      label Username:
-      input(type="text", name="username")
-    div
-      label Password:
-      input(type="password", name="password")
-    div
-      input(type="submit", value="Log In")
+  h1 Wohlo
+  div(class="carousel slide")
+    div(class="carousel-inner")
+      div(class="item active")
+        div(class="carousel-caption")
+          h2 Login
+          form(action="/login", method="post")
+            div
+              label Username:
+              input(type="text", name="username")
+            div
+              label Password:
+              input(type="password", name="password")
+            div
+              input(type="submit", value="Log In")
 
-  a(href="/auth/facebook") Login with Facebook
+          button(class="btn btn-facebook")
+            i(class="icon-home icon-white")
+            | | Connect with Facebook
+          hr
 
