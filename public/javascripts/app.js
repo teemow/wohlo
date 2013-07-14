@@ -71,5 +71,15 @@ $(document).ready(function () {
       ]
     });
   }
+  
+  
+  $("a").click(function() {
+	$('#modal_register').modal();
+  });
+  
+  
+  
+  
+  
 });
 

@@ -1,37 +1,60 @@
 extends layout
 
 block content
-  h1= title
   div(class="navbar navbar-fixed-top navbar-inverse")
     div(class="navbar-inner")
-      a(class="brand", href="#") Title
       ul(class="nav")
-        li(class="active")
+        li
           a(href="#") 
             i(class="icon-user") 
             span Profil
         li
           a(href="#") 
-            i(class="icon-check") Team
+            i(class="icon-check") 
+            span Team
+        li(class="active")
+          a(href="#") 
+            i(class="icon-refresh") 
+            span Challenges
         li
           a(href="#") 
-            i(class="icon-refresh") Challenges
+            i(class="icon-random") 
+            span Einladen
 
   div(class="challengecontainer")
     div(class="spalte1")
-      img(src="/images/bewegung.jpg", class="img-polaroid")
-      span Bewegung
-      br
-      img(src="/images/sport.jpg", class="img-polaroid")
-      span Rauchen
-      br
-      img(src="/images/schlaf.jpg", class="img-polaroid")
-      span Schlafen
+      a(href="#") 
+        img(src="/images/bewegung.jpg", class="img-polaroid")
+        span Bewegung
+        br
+      a(href="#") 
+        img(src="/images/sport.jpg", class="img-polaroid")
+        span Rauchen
+        br
+      a(href="#") 
+        img(src="/images/schlaf.jpg", class="img-polaroid")
+        span Schlafen
 
     div(class="spalte2")
-      img(src="/images/stress.jpg", class="img-polaroid")
-      span Stress
-      br
-      img(src="/images/ernaehrung.jpg", class="img-polaroid")
-      span Ernährung
+      a(href="#") 
+        img(src="/images/stress.jpg", class="img-polaroid")
+        span Stress
+        br
+      a(href="#") 
+        img(src="/images/ernaehrung.jpg", class="img-polaroid")
+        span Ernährung
+
+
+    div(id="modal_register", class="modal hide fade", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+      div(class="modal-header") 
+        button(aria-hidden="true", data-dismiss="modal", class="close", type="button")×
+        h3 Registriere dich jetzt!
+        
+      form(class="form-register")
+        input(type="text", class="input-block-level", placeholder="E-Mail Adresses")
+        input(type="password", class="input-block-level", placeholder="Password")
+        button(class="btn btn-large btn-primary", type="submit") Registrieren und Challenges starten
+      
+  
+    
 

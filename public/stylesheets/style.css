@@ -77,6 +77,10 @@ h2 {
   margin-top: 10px;
 }
 
+.nav li i {
+	padding-right: 5px;
+}
+
 
 
 /* CUSTOMIZE THE CAROUSEL
@@ -144,6 +148,10 @@ h2 {
   padding: 7px 9px;
 }
 
+.form-register {
+	margin: 20px 20px;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
@@ -155,8 +163,12 @@ h2 {
   }
   .navbar-inner {
     border-radius: 0;
-    margin: -20px 0;
+    padding: 1px;
   }
+  
+    .navbar .nav > li > a {
+
+	}
 
   .carousel .item {
 
@@ -248,4 +260,8 @@ input[type="radio"], input[type="checkbox"] {
 	color:#ffffff;
 	font-weight:bold;
 	margin-bottom:7px;
+}
+
+.modal-header {
+
 }
