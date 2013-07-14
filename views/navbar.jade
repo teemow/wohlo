@@ -6,7 +6,11 @@ div(class="navbar navbar-fixed-bottom navbar-inverse")
     ul(class="nav")
       li(class="active")
       	a(href="#") 
-      		i(class="icon-user") Profil
+          if user
+            i(class="icon-user")= user
+          else 
+            i(class="icon-user") Profil
+
       li
       	a(href="#") 
       		i(class="icon-check") Team
