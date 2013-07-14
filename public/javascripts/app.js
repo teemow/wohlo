@@ -75,16 +75,18 @@ $(document).ready(function () {
         "#00ff00",
       ]
     });
+    $("button").click(function() {
+      location.href="/challenges";
+    });
   }
-  
-  
-  $("a").click(function() {
-	$('#modal_register').modal();
-  });
-  
-  
-  
-  
-  
+
+  if ($('#modal_register').size() > 0) {
+    $('btn-facebook').click(function() {
+      location.href="/auth/facebook";
+    });
+    $("a").click(function() {
+      $('#modal_register').modal();
+    });
+  }
 });
 
