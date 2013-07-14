@@ -4,44 +4,7 @@ block content
   h1= title
   p Welcome to #{title}
 
-  script
-    var g1;
-    var g2;
-
-    window.onload = function(){
-    g1 = new JustGage({
-    id: "g1", 
-    value: 60, 
-    min: 0,
-    max: 100,
-    title: "Dein Score",
-    label: "", 
-    titleFontColor: "#000", 
-    levelColors: [
-    "#ff0000",
-    "#ffcc00",
-    "#00ff00",
-    ] 
-    });
-
-    g2 = new JustGage({
-    id: "g2", 
-    value: 65, 
-    min: 0,
-    max: 100,
-    title: "BMW",
-    titleFontColor: "#000", 
-    label: "", 
-    levelColors: [
-    "#ff0000",
-    "#ffcc00",
-    "#00ff00",
-    ] 
-    });
-    };
-
-    
-    
-  div(id="g1")
-  hr
-  div(id="g2")
+  div(class="item")
+    div(id="g1")
+    hr
+    div(id="g2")

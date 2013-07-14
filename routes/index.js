@@ -20,7 +20,7 @@ exports.login = function (req, res) {
 };
 
 exports.comparison = function (req, res) {
-  res.render("comparison");
+  res.render('comparison', {title: 'Wohlo'});
 };
 
 exports.logout = function(req, res) {
